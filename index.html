@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niloofar Hajiheidari - UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #2a9d8f;
+            --color-primary-dark: #238b7e;
+            --color-dark: #1a1a1a;
+            --color-text: #333;
+            --color-text-light: #666;
+            --color-text-lighter: #999;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f8f8;
+            --color-border: #e8e8e8;
+            --color-bezak: #f5e6e0;
+            --color-shilan: #f5f0e8;
+            --color-kaman: #e8e6f5;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-dark);
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-greeting {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--color-dark);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--color-text-light);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-text);
+            border: 1.5px solid var(--color-border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-lighter);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--color-text-light);
+            max-width: 600px;
+            font-weight: 300;
+            margin-bottom: 3.5rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-bg-alt);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-bg-alt) 0%, #eee 100%);
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-illustration {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: var(--color-primary);
+            opacity: 0.15;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--color-text-lighter);
+            margin-top: 0.25rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            background: var(--color-bg-alt);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            border-color: var(--color-primary);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Tools */
+        .tools-section {
+            margin-top: 3rem;
+        }
+
+        .tools-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+        }
+
+        .tool-tag {
+            padding: 0.5rem 1.125rem;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            transition: all 0.2s;
+        }
+
+        .tool-tag:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: rgba(42, 157, 143, 0.05);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--color-bg-alt);
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: 3px solid var(--color-bg-alt);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .timeline-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--color-text-lighter);
+        }
+
+        /* Projects Section */
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .project-card:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-visual {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-visual.hapi {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        .project-visual.bezak {
+            background: linear-gradient(135deg, var(--color-bezak) 0%, #f0d8d0 100%);
+        }
+
+        .project-visual.shilan {
+            background: linear-gradient(135deg, var(--color-shilan) 0%, #ebe4d6 100%);
+        }
+
+        .project-visual.kaman {
+            background: linear-gradient(135deg, var(--color-kaman) 0%, #d8d4f0 100%);
+        }
+
+        .project-mockup {
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+
+        .project-type {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tagline {
+            font-size: 1rem;
+            color: var(--color-text-lighter);
+            margin-bottom: 1rem;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--color-bg-alt);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            border: 1px solid var(--color-border);
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--color-bg-alt);
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .edu-card {
+            padding: 2rem;
+            background: var(--color-bg);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .edu-date {
+            font-size: 0.8rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        /* Certificates */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            padding: 1.75rem;
+            background: var(--color-bg);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .cert-date {
+            font-size: 0.75rem;
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--color-text);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--color-text-lighter);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .contact-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-dark);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--color-text-lighter);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-frame {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat {
+                padding: 1rem 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Niloofar H.</a>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">UI/UX Designer</p>
+            <h1 class="hero-name">Niloofar<br>Hajiheidari</h1>
+            <p class="hero-title">Bridging the gap between aesthetic design and human behavior. Turning complex user needs into functional, high-impact digital experiences.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-visual fade-in">
+                    <div class="about-image-frame">
+                        <div class="about-illustration">
+                            <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <span class="section-label">About Me</span>
+                    <h2 class="section-title">Designing with Purpose</h2>
+                    <p>I am a UI/UX Designer who bridges the gap between aesthetic design and human behavior. With a background in Visual Communication and an MSc in Communication Science, I combine creativity with data-driven insights to build intuitive products.</p>
+                    <p>From designing medical device interfaces at Twente Medical Optics to leading research-heavy startup projects at Narvan, I specialize in transforming complex user needs into functional, high-impact digital experiences.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">UX Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="section-container">
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">Skills & Capabilities</h2>
+            <p class="section-subtitle">A blend of research, strategy, and design craft to create meaningful user experiences.</p>
+
+            <div class="skills-grid fade-in">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>UX Research</h3>
+                    <p>Qualitative Interviews, Focus Groups, Usability Testing, and Competitor Benchmarking to uncover deep user insights.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h3>Product Strategy</h3>
+                    <p>End-to-End Product Design (0 to 1), Market Trend Analysis, and Innovation Strategy for impactful products.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                    </div>
+                    <h3>Design Craft</h3>
+                    <p>UI Design, Wireframing, High-Fidelity Prototyping, Cross-platform Design (Mobile & Web), and Design Systems.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <h3>Product Thinking</h3>
+                    <p>Design Thinking Methodology, User Flow Optimization, User Journey Mapping, and UX Writing.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3>Data-Informed Design</h3>
+                    <p>Quantitative Data Analysis and Consumer Needs Assessment to make evidence-based design decisions.</p>
+                </div>
+            </div>
+
+            <div class="tools-section fade-in">
+                <h3>Tools I Use</h3>
+                <div class="tools-list">
+                    <span class="tool-tag">Figma</span>
+                    <span class="tool-tag">Maze</span>
+                    <span class="tool-tag">Miro</span>
+                    <span class="tool-tag">Procreate</span>
+                    <span class="tool-tag">Canva</span>
+                    <span class="tool-tag">Adobe Illustrator</span>
+                    <span class="tool-tag">Photoshop</span>
+                    <span class="tool-tag">InDesign</span>
+                    <span class="tool-tag">After Effects</span>
+                    <span class="tool-tag">MAXQDA</span>
+                    <span class="tool-tag">Qualtrics</span>
+                    <span class="tool-tag">G Suite</span>
+                    <span class="tool-tag">Squarespace</span>
+                    <span class="tool-tag">R Studio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience">
+        <div class="section-container">
+            <span class="section-label">Career</span>
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-subtitle">From med-tech startups to design education, building impactful experiences across domains.</p>
+
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Design and Marketing Internship</h3>
+                        <span class="timeline-date">Feb 2025 - Dec 2025</span>
+                    </div>
+                    <p class="timeline-company">Twente Medical Optics, Enschede, Netherlands</p>
+                    <ul class="timeline-list">
+                        <li>Designed the UI and UX of the Med-Tech device interface</li>
+                        <li>Redesigned the website, created newsletters, and supported stakeholder research</li>
+                        <li>Created LinkedIn content: event photos, videos, and branded templates</li>
+                        <li>Designed event materials (flyer, labels, QR page) and helped present the product at a live event</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Product Designer</h3>
+                        <span class="timeline-date">Jan 2022 - Oct 2022</span>
+                    </div>
+                    <p class="timeline-company">Narvan Startup Studio, Tehran, Iran</p>
+                    <ul class="timeline-list">
+                        <li>Conducted user research through interviews and focus groups, creating personas and journey maps</li>
+                        <li>Led the prototyping and redesign of a web and mobile application using data analysis</li>
+                        <li>Developed and implemented new features to improve overall user experience</li>
+                        <li>Worked closely with developers and product managers to translate designs into functional interfaces</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Graphic Design Teaching Internship</h3>
+                        <span class="timeline-date">Jan 2022 - Feb 2024</span>
+                    </div>
+                    <p class="timeline-company">Art Schools, Tehran, Iran</p>
+                    <ul class="timeline-list">
+                        <li>Supported lesson delivery and led weekly design critiques for 20 students</li>
+                        <li>Promoted collaboration, enhancing design skills, and contributing to a dynamic learning environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-container">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Selected Projects</h2>
+            <p class="section-subtitle">A showcase of research-driven design work across med-tech, e-commerce, and productivity.</p>
+
+            <!-- HAPI -->
+            <div class="project-card fade-in">
+                <div class="project-visual hapi">
+                    <div class="project-mockup">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <circle cx="12" cy="10" r="3"/>
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Med-Tech Device</span>
+                    <h3>HAPI</h3>
+                    <p class="project-tagline">Medical Scanner Interface Design</p>
+                    <p>HAPI is a medical scanner where precision and regulations are everything. I turned complex technical requirements into something convenient for doctors in a fast-paced clinical setting. Delivered validated Hi-Fi prototypes as the blueprint for development.</p>
+                    <div class="project-details">
+                        <span class="project-tag">UI/UX Design</span>
+                        <span class="project-tag">Medical Device</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">Usability Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bezak -->
+            <div class="project-card fade-in">
+                <div class="project-visual bezak">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#a88" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Shopping App</span>
+                    <h3>Bezak</h3>
+                    <p class="project-tagline">Cosmetics & Skincare E-commerce</p>
+                    <p>An esteemed online retailer offering a wide range of cosmetics and skincare products. Designed a user-friendly app that helps busy individuals quickly discover and organize a skincare routine tailored to their specific skin type, with expert consultant access.</p>
+                    <div class="project-details">
+                        <span class="project-tag">User Research</span>
+                        <span class="project-tag">E-commerce</span>
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">Usability Study</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shilan -->
+            <div class="project-card fade-in">
+                <div class="project-visual shilan">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#997" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Reservation App</span>
+                    <h3>Shilan</h3>
+                    <p class="project-tagline">Meal Reservation System</p>
+                    <p>A specialized application for streamlining meal reservations for companies and universities. Rooted in design thinking principles, I researched user needs by interviewing 16 students and employees, then designed a seamless reservation flow with accessibility in mind.</p>
+                    <div class="project-details">
+                        <span class="project-tag">Design Thinking</span>
+                        <span class="project-tag">User Interviews</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">A/B Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kaman -->
+            <div class="project-card fade-in">
+                <div class="project-visual kaman">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#779" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Productivity App</span>
+                    <h3>Kaman</h3>
+                    <p class="project-tagline">Remote Work Planning & Productivity</p>
+                    <p>A user-friendly mobile application aimed at enhancing planning capabilities and boosting personal productivity for remote workers. Used mixed-method research with 9 interviews and 50 surveys, identifying work-life balance as the primary challenge to solve.</p>
+                    <div class="project-details">
+                        <span class="project-tag">Mixed-Method Research</span>
+                        <span class="project-tag">Task Management</span>
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">Kano Model</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education">
+        <div class="section-container">
+            <span class="section-label">Education</span>
+            <h2 class="section-title">Academic Background</h2>
+            <p class="section-subtitle">A strong foundation combining visual design with communication science research.</p>
+
+            <div class="edu-grid fade-in">
+                <div class="edu-card">
+                    <span class="edu-date">Feb 2025 - Jan 2026</span>
+                    <h3>Master in Communication Science</h3>
+                    <p>University of Twente, Enschede, Netherlands</p>
+                </div>
+                <div class="edu-card">
+                    <span class="edu-date">Jan 2020 - Feb 2024</span>
+                    <h3>Bachelor in Visual Communication</h3>
+                    <p>Farhangian University, Tehran, Iran</p>
+                </div>
+            </div>
+
+            <div class="cert-grid fade-in">
+                <div class="cert-card">
+                    <span class="cert-date">July 2024</span>
+                    <h4>Google UX Design</h4>
+                    <p>Coursera Online - Professional Certificate</p>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-date">Sep 2021</span>
+                    <h4>UX Design</h4>
+                    <p>Rahnema College Online</p>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-date">Dec 2021</span>
+                    <h4>Product Design</h4>
+                    <p>Rahnema College Online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <span class="section-label">Get in Touch</span>
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+
+            <div class="contact-methods fade-in">
+                <a href="mailto:Niloofar.hheidari@gmail.com" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">Niloofar.hheidari@gmail.com</div>
+                    </div>
+                </a>
+                <a href="tel:+31646573411" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">+31 6 46 57 34 11</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/niloofar-hajiheidari" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </div>
+                    <div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Niloofar Hajiheidari</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <p class="footer-text">Niloofar Hajiheidari &mdash; UI/UX Designer</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                if (navLink) {
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        navLink.style.color = 'var(--color-primary)';
+                    } else {
+                        navLink.style.color = '';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
