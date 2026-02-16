@@ -78,6 +78,16 @@
             font-weight: 600;
             color: var(--color-dark);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-bg-alt);
         }
 
         .nav-links {
@@ -947,7 +957,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-logo">Niloofar H.</a>
+            <a href="#" class="nav-logo">
+                <img src="Photo.png" alt="Niloofar H." aria-label="Home">
+            </a>
             <button class="nav-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
