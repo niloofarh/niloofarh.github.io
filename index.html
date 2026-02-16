@@ -515,35 +515,41 @@
         }
 
         /* Projects Section */
-        .project-card {
+        .projects-grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--color-border);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
         }
 
-        .project-card:last-child {
-            border-bottom: none;
+        .project-card {
+            background: var(--color-bg);
+            border-radius: 16px;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
         }
 
-        .project-card:nth-child(even) {
-            direction: rtl;
-        }
-
-        .project-card:nth-child(even) > * {
-            direction: ltr;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-primary);
         }
 
         .project-visual {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            aspect-ratio: 16/9;
+            width: 100%;
+            border-bottom: 1px solid var(--color-border);
+            position: relative; /* Added for correct positioning of mockup */
+            display: flex; /* Added to center mockup */
+            align-items: center; /* Added to center mockup */
+            justify-content: center; /* Added to center mockup */
         }
 
         .project-visual.hapi {
@@ -567,41 +573,43 @@
             opacity: 0.8;
         }
 
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
         .project-type {
             font-size: 0.8rem;
             font-weight: 600;
             color: var(--color-primary);
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .project-info h3 {
             font-family: var(--font-serif);
-            font-size: 1.75rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--color-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .project-tagline {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--color-text-lighter);
             margin-bottom: 1rem;
         }
 
         .project-info p {
-            font-size: 0.95rem;
-            color: var(--color-text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            display: none; /* Hide detailed description on main cards */
         }
 
         .project-details {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-top: 1rem;
         }
 
         .project-tag {
@@ -868,14 +876,7 @@
                 font-size: 1.5rem;
             }
 
-            .project-card {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
 
-            .project-card:nth-child(even) {
-                direction: ltr;
-            }
 
             .edu-grid {
                 grid-template-columns: 1fr;
@@ -960,6 +961,120 @@
         <div class="scroll-indicator">
             <span>SCROLL</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-container">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Selected Projects</h2>
+            <p class="section-subtitle">A showcase of research-driven design work across med-tech, e-commerce, and productivity.</p>
+
+            <div class="projects-grid-container">
+            <!-- HAPI -->
+            <a href="#" class="project-card fade-in">
+                <div class="project-visual hapi">
+                    <div class="project-mockup">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <circle cx="12" cy="10" r="3"/>
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Med-Tech Device</span>
+                    <h3>HAPI</h3>
+                    <p class="project-tagline">Medical Scanner Interface Design</p>
+                    <p>HAPI is a medical scanner where precision and regulations are everything. I turned complex technical requirements into something convenient for doctors in a fast-paced clinical setting. Delivered validated Hi-Fi prototypes as the blueprint for development.</p>
+                    <div class="project-details">
+                        <span class="project-tag">UI/UX Design</span>
+                        <span class="project-tag">Medical Device</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">Usability Testing</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Bezak -->
+            <a href="#" class="project-card fade-in">
+                <div class="project-visual bezak">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#a88" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Shopping App</span>
+                    <h3>Bezak</h3>
+                    <p class="project-tagline">Cosmetics & Skincare E-commerce</p>
+                    <p>An esteemed online retailer offering a wide range of cosmetics and skincare products. Designed a user-friendly app that helps busy individuals quickly discover and organize a skincare routine tailored to their specific skin type, with expert consultant access.</p>
+                    <div class="project-details">
+                        <span class="project-tag">User Research</span>
+                        <span class="project-tag">E-commerce</span>
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">Usability Study</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Shilan -->
+            <a href="#" class="project-card fade-in">
+                <div class="project-visual shilan">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#997" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Reservation App</span>
+                    <h3>Shilan</h3>
+                    <p class="project-tagline">Meal Reservation System</p>
+                    <p>A specialized application for streamlining meal reservations for companies and universities. Rooted in design thinking principles, I researched user needs by interviewing 16 students and employees, then designed a seamless reservation flow with accessibility in mind.</p>
+                    <div class="project-details">
+                        <span class="project-tag">Design Thinking</span>
+                        <span class="project-tag">User Interviews</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">A/B Testing</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Kaman -->
+            <a href="#" class="project-card fade-in">
+                <div class="project-visual kaman">
+                    <div class="project-mockup">
+                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#779" stroke-width="0.8">
+                            <rect x="2" y="1" width="20" height="42" rx="3"/>
+                            <line x1="8" y1="4" x2="16" y2="4"/>
+                            <circle cx="12" cy="40" r="1.5"/>
+                            <rect x="4" y="7" width="16" height="30" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-type">Productivity App</span>
+                    <h3>Kaman</h3>
+                    <p class="project-tagline">Remote Work Planning & Productivity</p>
+                    <p>A user-friendly mobile application aimed at enhancing planning capabilities and boosting personal productivity for remote workers. Used mixed-method research with 9 interviews and 50 surveys, identifying work-life balance as the primary challenge to solve.</p>
+                    <div class="project-details">
+                        <span class="project-tag">Mixed-Method Research</span>
+                        <span class="project-tag">Task Management</span>
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">Kano Model</span>
+                    </div>
+                </div>
+            </a>
+            </div>
         </div>
     </section>
 
@@ -1119,117 +1234,7 @@
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-        <div class="section-container">
-            <span class="section-label">Portfolio</span>
-            <h2 class="section-title">Selected Projects</h2>
-            <p class="section-subtitle">A showcase of research-driven design work across med-tech, e-commerce, and productivity.</p>
 
-            <!-- HAPI -->
-            <div class="project-card fade-in">
-                <div class="project-visual hapi">
-                    <div class="project-mockup">
-                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <circle cx="12" cy="10" r="3"/>
-                            <line x1="2" y1="20" x2="22" y2="20"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="project-type">Med-Tech Device</span>
-                    <h3>HAPI</h3>
-                    <p class="project-tagline">Medical Scanner Interface Design</p>
-                    <p>HAPI is a medical scanner where precision and regulations are everything. I turned complex technical requirements into something convenient for doctors in a fast-paced clinical setting. Delivered validated Hi-Fi prototypes as the blueprint for development.</p>
-                    <div class="project-details">
-                        <span class="project-tag">UI/UX Design</span>
-                        <span class="project-tag">Medical Device</span>
-                        <span class="project-tag">Prototyping</span>
-                        <span class="project-tag">Usability Testing</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bezak -->
-            <div class="project-card fade-in">
-                <div class="project-visual bezak">
-                    <div class="project-mockup">
-                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#a88" stroke-width="0.8">
-                            <rect x="2" y="1" width="20" height="42" rx="3"/>
-                            <line x1="8" y1="4" x2="16" y2="4"/>
-                            <circle cx="12" cy="40" r="1.5"/>
-                            <rect x="4" y="7" width="16" height="30" rx="1"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="project-type">Shopping App</span>
-                    <h3>Bezak</h3>
-                    <p class="project-tagline">Cosmetics & Skincare E-commerce</p>
-                    <p>An esteemed online retailer offering a wide range of cosmetics and skincare products. Designed a user-friendly app that helps busy individuals quickly discover and organize a skincare routine tailored to their specific skin type, with expert consultant access.</p>
-                    <div class="project-details">
-                        <span class="project-tag">User Research</span>
-                        <span class="project-tag">E-commerce</span>
-                        <span class="project-tag">Mobile App</span>
-                        <span class="project-tag">Usability Study</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Shilan -->
-            <div class="project-card fade-in">
-                <div class="project-visual shilan">
-                    <div class="project-mockup">
-                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#997" stroke-width="0.8">
-                            <rect x="2" y="1" width="20" height="42" rx="3"/>
-                            <line x1="8" y1="4" x2="16" y2="4"/>
-                            <circle cx="12" cy="40" r="1.5"/>
-                            <rect x="4" y="7" width="16" height="30" rx="1"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="project-type">Reservation App</span>
-                    <h3>Shilan</h3>
-                    <p class="project-tagline">Meal Reservation System</p>
-                    <p>A specialized application for streamlining meal reservations for companies and universities. Rooted in design thinking principles, I researched user needs by interviewing 16 students and employees, then designed a seamless reservation flow with accessibility in mind.</p>
-                    <div class="project-details">
-                        <span class="project-tag">Design Thinking</span>
-                        <span class="project-tag">User Interviews</span>
-                        <span class="project-tag">Prototyping</span>
-                        <span class="project-tag">A/B Testing</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kaman -->
-            <div class="project-card fade-in">
-                <div class="project-visual kaman">
-                    <div class="project-mockup">
-                        <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#779" stroke-width="0.8">
-                            <rect x="2" y="1" width="20" height="42" rx="3"/>
-                            <line x1="8" y1="4" x2="16" y2="4"/>
-                            <circle cx="12" cy="40" r="1.5"/>
-                            <rect x="4" y="7" width="16" height="30" rx="1"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <span class="project-type">Productivity App</span>
-                    <h3>Kaman</h3>
-                    <p class="project-tagline">Remote Work Planning & Productivity</p>
-                    <p>A user-friendly mobile application aimed at enhancing planning capabilities and boosting personal productivity for remote workers. Used mixed-method research with 9 interviews and 50 surveys, identifying work-life balance as the primary challenge to solve.</p>
-                    <div class="project-details">
-                        <span class="project-tag">Mixed-Method Research</span>
-                        <span class="project-tag">Task Management</span>
-                        <span class="project-tag">Mobile App</span>
-                        <span class="project-tag">Kano Model</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Education -->
     <section id="education" class="education">
