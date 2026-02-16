@@ -69,7 +69,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 64px;
+            height: 80px;
+            /* Increased from 64px */
         }
 
         .nav-logo {
@@ -83,8 +84,10 @@
         }
 
         .nav-logo img {
-            height: 48px;
-            width: 48px;
+            height: 60px;
+            /* Increased from 48px */
+            width: 60px;
+            /* Increased from 48px */
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--color-bg-alt);
@@ -92,17 +95,19 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            /* Increased gap */
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--color-text-light);
-            font-size: 0.875rem;
+            color: var(--color-dark);
             font-weight: 500;
+            font-size: 1.1rem;
+            /* Increased from default ~1rem */
             letter-spacing: 0.02em;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
