@@ -23,12 +23,17 @@
             --color-primary: #6B8F71;
             --color-primary-dark: #567d5c;
             --color-dark: #212934;
-            --color-text: #333;
-            --color-text-light: #666;
-            --color-text-lighter: #999;
+            --color-text: #3F4751;
+            /* Dark Slate Grey */
+            --color-text-light: #5D656E;
+            /* Medium Slate Grey */
+            --color-text-lighter: #7B838B;
+            /* Light Slate Grey */
             --color-bg: #ffffff;
-            --color-bg-alt: #f8f8f8;
-            --color-border: #e8e8e8;
+            --color-bg-alt: #F0F4F8;
+            /* Very Light Blue Grey */
+            --color-border: #D1D9E0;
+            /* Blue Grey Border */
             --color-bezak: #f5e6e0;
             --color-shilan: #f5f0e8;
             --color-kaman: #e8e6f5;
@@ -566,60 +571,134 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            border-color: var(--color-primary);
-        }
-
-        .project-visual {
-            width: 100%;
-            height: 300px;
-            border-bottom: 1px solid var(--color-border);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .project-info {
-            padding: 2rem;
-            flex-grow: 1;
-        }
-
         @media (min-width: 900px) {
             .project-card {
-                flex-direction: row;
-                min-height: 400px;
+                flex-direction: column;
+                /* Stacked layout */
+                min-height: auto;
                 align-items: stretch;
             }
 
             .project-visual {
-                width: 55%;
-                /* Increased from 45% */
-                height: auto;
-                border-bottom: none;
-                border-right: 1px solid var(--color-border);
+                width: 100%;
+                /* Full width */
+                height: 450px;
+                /* Fixed height for visual */
             }
 
             .project-info {
-                width: 45%;
-                /* Decreased from 55% */
-                padding: 3rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
+                width: 100%;
+                /* Full width */
+                padding: 1.25rem 0 0 0;
             }
+        }
 
-            .project-info p {
-                display: block;
-                margin-bottom: 1.5rem;
-                font-size: 1.05rem;
-                line-height: 1.7;
-                color: var(--color-text-light);
-            }
+        .project-card {
+            background: var(--color-bg);
+            border-radius: 24px;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(107, 143, 113, 0.04);
+            padding: 1rem;
+            /* Add padding inside card */
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 350px;
+            border-radius: 16px;
+            /* Round image corners */
+            overflow: hidden;
+            position: relative;
+            /* For absolute positioning of tags */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg-alt);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            z-index: 10;
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--color-dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-info {
+            padding: 1.5rem 0 0 0;
+            /* Remove side padding, add top padding */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            font-size: 1.5rem;
+        }
+
+        .project-type {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            font-weight: 600;
+            display: block;
+            /* Ensure it takes its own line */
+            margin-bottom: 0px;
+            /* Reduced bottom margin */
+        }
+
+        .project-tagline {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.75rem;
+            /* Reduced from default p margin */
+            font-weight: 500;
+        }
+
+        .project-info .btn {
+            width: auto;
+            /* Auto width */
+            display: inline-block;
+            text-align: center;
+            margin-top: 1rem;
+            /* Push to bottom */
+            padding: 0.6rem 2rem;
+            border-radius: 8px;
+            /* Reduced curviness */
+            align-self: flex-start;
+            /* Align left */
+            font-weight: 500;
+        }
+
+        .project-info p {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--color-text-light);
         }
 
         .project-visual.hapi {
@@ -1052,7 +1131,7 @@
     <!-- Projects -->
     <section id="projects">
         <div class="section-container">
-            <span class="section-label">Portfolio</span>
+
             <h2 class="section-title">Projects</h2>
             <p class="section-subtitle">A showcase of research-driven design work across med-tech, e-commerce, and
                 productivity.</p>
@@ -1090,13 +1169,24 @@
                 <div class="project-card fade-in">
                     <div class="project-visual bezak">
                         <div class="project-mockup">
-                            <svg width="80" height="140" viewBox="0 0 24 44" fill="none" stroke="#a88"
+                            <svg width="60" height="120" viewBox="0 0 24 48" fill="none" stroke="#d5bdaf"
                                 stroke-width="0.8">
-                                <rect x="2" y="1" width="20" height="42" rx="3" />
-                                <line x1="8" y1="4" x2="16" y2="4" />
+                                <rect x="2" y="2" width="20" height="44" rx="2" />
+                                <rect x="4" y="6" width="16" height="24" rx="1" fill="#fff" fill-opacity="0.3" />
                                 <circle cx="12" cy="40" r="1.5" />
-                                <rect x="4" y="7" width="16" height="30" rx="1" />
+                                <path d="M6 34h6M6 37h12" stroke-linecap="round" />
                             </svg>
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d5bdaf"
+                                stroke-width="0.8" style="margin-left:-20px; margin-top: 40px;">
+                                <rect x="2" y="4" width="20" height="16" rx="2" fill="#fff" fill-opacity="0.5" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <div class="project-details">
+                            <span class="project-tag">User Research</span>
+                            <span class="project-tag">E-commerce</span>
+                            <span class="project-tag">Mobile App</span>
+                            <span class="project-tag">Usability Study</span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -1106,12 +1196,6 @@
                         <p>An esteemed online retailer offering a wide range of cosmetics and skincare products.
                             Designed a user-friendly app that helps busy individuals quickly discover and organize a
                             skincare routine tailored to their specific skin type, with expert consultant access.</p>
-                        <div class="project-details">
-                            <span class="project-tag">User Research</span>
-                            <span class="project-tag">E-commerce</span>
-                            <span class="project-tag">Mobile App</span>
-                            <span class="project-tag">Usability Study</span>
-                        </div>
                         <a href="https://www.behance.net/gallery/179235871/Bezak-Case-Study" target="_blank"
                             class="btn btn-outline btn-sm" style="margin-top: 1.5rem;">Read more</a>
                     </div>
@@ -1129,6 +1213,12 @@
                                 <rect x="4" y="7" width="16" height="30" rx="1" />
                             </svg>
                         </div>
+                        <div class="project-details">
+                            <span class="project-tag">Design Thinking</span>
+                            <span class="project-tag">User Interviews</span>
+                            <span class="project-tag">Prototyping</span>
+                            <span class="project-tag">A/B Testing</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <span class="project-type">Reservation App</span>
@@ -1137,12 +1227,6 @@
                         <p>A specialized application for streamlining meal reservations for companies and universities.
                             Rooted in design thinking principles, I researched user needs by interviewing 16 students
                             and employees, then designed a seamless reservation flow with accessibility in mind.</p>
-                        <div class="project-details">
-                            <span class="project-tag">Design Thinking</span>
-                            <span class="project-tag">User Interviews</span>
-                            <span class="project-tag">Prototyping</span>
-                            <span class="project-tag">A/B Testing</span>
-                        </div>
                         <a href="https://www.behance.net/gallery/179581813/Shilan-Case-Study" target="_blank"
                             class="btn btn-outline btn-sm" style="margin-top: 1.5rem;">Read more</a>
                     </div>
@@ -1153,6 +1237,12 @@
                     <div class="project-visual kaman">
                         <img src="kaman-cover.jpg" alt="Kaman App Cover"
                             style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="project-details">
+                            <span class="project-tag">Mixed-Method Research</span>
+                            <span class="project-tag">Task Management</span>
+                            <span class="project-tag">Mobile App</span>
+                            <span class="project-tag">Kano Model</span>
+                        </div>
                     </div>
                     <div class="project-info">
                         <span class="project-type">Productivity App</span>
@@ -1163,12 +1253,6 @@
                             professionals rebuild their work-life balance. By combining qualitative user research with
                             habit-tracking strategies, this app moves beyond simple to-do lists to help users actively
                             manage their mental well-being.</p>
-                        <div class="project-details">
-                            <span class="project-tag">Mixed-Method Research</span>
-                            <span class="project-tag">Task Management</span>
-                            <span class="project-tag">Mobile App</span>
-                            <span class="project-tag">Kano Model</span>
-                        </div>
                         <a href="https://www.behance.net/gallery/132098793/Kaman-Productivity-App" target="_blank"
                             class="btn btn-outline btn-sm" style="margin-top: 1.5rem;">Read more</a>
                     </div>
@@ -1182,7 +1266,7 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="section-container">
-            <span class="section-label">Get in Touch</span>
+
             <h2 class="section-title">Let's Work Together</h2>
             <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to
                 be part of your vision.</p>

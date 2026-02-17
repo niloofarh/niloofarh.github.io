@@ -23,12 +23,17 @@
             --color-primary: #6B8F71;
             --color-primary-dark: #567d5c;
             --color-dark: #212934;
-            --color-text: #333;
-            --color-text-light: #666;
-            --color-text-lighter: #999;
+            --color-text: #3F4751;
+            /* Dark Slate Grey */
+            --color-text-light: #5D656E;
+            /* Medium Slate Grey */
+            --color-text-lighter: #7B838B;
+            /* Light Slate Grey */
             --color-bg: #ffffff;
-            --color-bg-alt: #f8f8f8;
-            --color-border: #e8e8e8;
+            --color-bg-alt: #F0F4F8;
+            /* Very Light Blue Grey */
+            --color-border: #D1D9E0;
+            /* Blue Grey Border */
             --color-bezak: #f5e6e0;
             --color-shilan: #f5f0e8;
             --color-kaman: #e8e6f5;
@@ -566,60 +571,142 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            border-color: var(--color-primary);
-        }
-
-        .project-visual {
-            width: 100%;
-            height: 300px;
-            border-bottom: 1px solid var(--color-border);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .project-info {
-            padding: 2rem;
-            flex-grow: 1;
-        }
-
+        /* Project Card Styles */
         @media (min-width: 900px) {
             .project-card {
-                flex-direction: row;
-                min-height: 400px;
+                flex-direction: column;
+                /* Stacked layout */
+                min-height: auto;
                 align-items: stretch;
             }
 
             .project-visual {
-                width: 55%;
-                /* Increased from 45% */
-                height: auto;
-                border-bottom: none;
-                border-right: 1px solid var(--color-border);
+                width: 100%;
+                /* Full width */
+                height: 450px;
+                /* Increased height */
             }
 
             .project-info {
-                width: 45%;
-                /* Decreased from 55% */
-                padding: 3rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
+                width: 100%;
+                /* Full width */
+                padding: 1.25rem 0 0 0;
             }
+        }
 
-            .project-info p {
-                display: block;
-                margin-bottom: 1.5rem;
-                font-size: 1.05rem;
-                line-height: 1.7;
-                color: var(--color-text-light);
-            }
+        .project-card {
+            background: var(--color-bg);
+            border-radius: 24px;
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(107, 143, 113, 0.04);
+            padding: 1rem;
+            /* Add padding inside card */
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 350px;
+            /* Mobile height */
+            border-radius: 12px;
+            /* Reduced curviness */
+            overflow: hidden;
+            position: relative;
+            /* For absolute positioning of tags */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg-alt);
+        }
+
+        .project-details {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            z-index: 10;
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-dark);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            /* Reduced curviness further */
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-info {
+            padding: 1.5rem 0 0 0;
+            /* Remove side padding, add top padding */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+            font-size: 1.5rem;
+        }
+
+        .project-type {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            font-weight: 600;
+            display: block;
+            /* Ensure it takes its own line */
+            margin-bottom: 0px;
+            /* Reduced bottom margin */
+        }
+
+        .project-tagline {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.75rem;
+            /* Reduced from default p margin */
+            font-weight: 500;
+        }
+
+
+
+        .project-info .btn {
+            width: auto;
+            /* Auto width */
+            display: inline-block;
+            text-align: center;
+            margin-top: 1rem;
+            /* Push to bottom */
+            padding: 0.6rem 2rem;
+            border-radius: 8px;
+            /* Reduced curviness */
+            align-self: flex-start;
+            /* Align left */
+            font-weight: 500;
+        }
+
+
+
+        .project-info p {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--color-text-light);
+        }
         }
 
         .project-visual.hapi {
@@ -1023,8 +1110,8 @@
             <div class="about-grid">
 
                 <div class="about-text fade-in">
-                    <span class="section-label">About Me</span>
-                    <h2 class="section-title">Designing with Purpose</h2>
+
+                    <h2 class="section-title">About me</h2>
                     <p>I am a UI/UX Designer who bridges the gap between aesthetic design and human behavior. With a
                         background in Visual Communication and an MSc in Communication Science, I combine creativity
                         with data-driven insights to build intuitive products.</p>
@@ -1053,7 +1140,7 @@
     <!-- Skills -->
     <section id="skills">
         <div class="section-container">
-            <span class="section-label">Expertise</span>
+
             <h2 class="section-title">Skills & Capabilities</h2>
             <p class="section-subtitle">A blend of research, strategy, and design craft to create meaningful user
                 experiences.</p>
@@ -1127,6 +1214,7 @@
             <div class="tools-section fade-in">
                 <h3>Tools I Use</h3>
                 <div class="tools-list">
+                    <span class="tool-tag">Antigravity</span>
                     <span class="tool-tag">Figma</span>
                     <span class="tool-tag">Maze</span>
                     <span class="tool-tag">Miro</span>
@@ -1149,7 +1237,7 @@
     <!-- Experience -->
     <section id="experience" class="experience">
         <div class="section-container">
-            <span class="section-label">Career</span>
+
             <h2 class="section-title">Work Experience</h2>
             <p class="section-subtitle">From med-tech startups to design education, building impactful experiences
                 across domains.</p>
@@ -1252,7 +1340,7 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="section-container">
-            <span class="section-label">Get in Touch</span>
+
             <h2 class="section-title">Let's Work Together</h2>
             <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to
                 be part of your vision.</p>
