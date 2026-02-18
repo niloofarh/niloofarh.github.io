@@ -709,7 +709,7 @@
             line-height: 1.6;
             color: var(--color-text-light);
         }
-        }
+
 
         .project-visual.hapi {
             background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
@@ -1104,75 +1104,123 @@
     </nav>
     <div style="margin-top: 80px;"></div>
 
-
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="section-container">
-            <div class="about-grid">
-
-                <div class="about-text fade-in">
-
-                    <h2 class="section-title">About Me</h2>
-                    <p>I am a UI/UX Designer who bridges the gap between aesthetic design and human behavior. With a
-                        background in Visual Communication and an MSc in Communication Science, I combine creativity
-                        with data-driven insights to build intuitive products.</p>
-                    <p>From designing medical device interfaces at Twente Medical Optics to leading research-heavy
-                        startup projects at Narvan, I specialize in transforming complex user needs into functional,
-                        high-impact digital experiences.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">1</div>
-                            <div class="stat-label">Year Experience</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">4</div>
-                            <div class="stat-label">UI/UX Projects</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Languages</div>
-                        </div>
-                    </div>
+    <!-- Project Hero -->
+    <section class="hero" style="min-height: 60vh; padding-top: 140px;">
+        <div class="hero-content" style="text-align: left;">
+            <span class="project-type"
+                style="display: block; margin-bottom: 1rem; color: var(--color-primary); font-weight: 600;">Med-Tech
+                Interface Design</span>
+            <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">HAPI: Medical Scanner Interface</h1>
+            <p style="font-size: 1.25rem; color: var(--color-text-light); max-width: 600px; margin-bottom: 2rem;">
+                Bridging the gap between complex medical technology and clinical usability. A validated high-fidelity
+                prototype designed for precision and efficiency in fast-paced medical environments.
+            </p>
+            <div class="project-meta" style="display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                <div>
+                    <span
+                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Role</span>
+                    <span style="font-weight: 500;">UI/UX Designer</span>
+                </div>
+                <div>
+                    <span
+                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Timeline</span>
+                    <span style="font-weight: 500;">3 Months</span>
+                </div>
+                <div>
+                    <span
+                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Tools</span>
+                    <span style="font-weight: 500;">Figma, Adobe XD</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <div class="section-container">
+    <!-- Visual -->
+    <section style="padding: 0 2rem; max-width: 1200px; margin: 0 auto;">
+        <img src="HAPI-cover.png?v=2" alt="HAPI Interface"
+            style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(107, 143, 113, 0.15);">
+    </section>
 
-            <h2 class="section-title">Skills & Capabilities</h2>
-            <p class="section-subtitle">A blend of research, strategy, and design craft to create meaningful user
-                experiences.</p>
+    <!-- Content Sections -->
+    <section class="section-container">
+        <div class="about-grid" style="grid-template-columns: 1fr; gap: 4rem;">
 
-            <div class="skills-grid fade-in">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                    </div>
-                    </a>
+            <!-- The Challenge -->
+            <div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The Challenge</h2>
+                <p style="margin-bottom: 1rem;">
+                    Designing for medical devices presents a unique set of constraints. The interface must be rigorous
+                    enough to meet strict medical regulations while remaining intuitive for doctors who operate under
+                    high pressure.
+                </p>
+                <p>
+                    The core challenge was to simplify the control of a complex medical scanner without oversimplifying
+                    the critical data it provides. We needed to reduce cognitive load, minimize error rates, and ensure
+                    that every interaction was deliberate and precise.
+                </p>
+            </div>
 
-                    <a href="https://www.linkedin.com/in/niloofarhajiheidari/" target="_blank" rel="noopener noreferrer"
-                        class="contact-item">
-                        <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect x="2" y="9" width="4" height="12" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </div>
+            <!-- The Approach -->
+            <div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">My Approach</h2>
+                <p style="margin-bottom: 1rem;">
+                    My design process was grounded in understanding the clinical workflow. I started by mapping out the
+                    doctor's journey—from patient setup to scanning and data review.
+                </p>
+                <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <span style="color: var(--color-primary); font-weight: bold;">01</span>
                         <div>
-                            <div class="contact-label">LinkedIn</div>
-                            <div class="contact-value">Niloofar Hajiheidari</div>
+                            <strong>Workflow Analysis:</strong> Identifying friction points in existing scanner
+                            interfaces where doctors often struggled or hesitated.
                         </div>
-                    </a>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <span style="color: var(--color-primary); font-weight: bold;">02</span>
+                        <div>
+                            <strong>Regulatory Alignment:</strong> Ensuring all UI elements met accessibility and safety
+                            standards required for medical software (e.g., clear readability, error prevention).
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <span style="color: var(--color-primary); font-weight: bold;">03</span>
+                        <div>
+                            <strong>Rapid Prototyping:</strong> Creating low-fidelity wireframes to test layout logic
+                            before moving to high-fidelity visual designs.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- The Solution -->
+            <div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The Solution</h2>
+                <p style="margin-bottom: 1rem;">
+                    The final HAPI interface is a validated high-fidelity prototype that balances power with ease of
+                    use. Key design decisions included:
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Clear Hierarchy</h3>
+                        <p style="font-size: 0.95rem; color: var(--color-text-light);">Critical scanning data is
+                            prioritized, while secondary settings are tucked away to reduce visual clutter.</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Error Prevention</h3>
+                        <p style="font-size: 0.95rem; color: var(--color-text-light);">"Confirm" actions are
+                            distinguished from "Cancel" actions through distinct color coding and placement to prevent
+                            accidental stops.</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Dark Mode Ready</h3>
+                        <p style="font-size: 0.95rem; color: var(--color-text-light);">Designed for dimly lit radiology
+                            rooms to reduce eye strain for medical professionals.</p>
+                    </div>
                 </div>
             </div>
+
+        </div>
     </section>
 
     <!-- Footer -->
