@@ -74,8 +74,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
-            /* Increased from 64px */
+            height: 120px;
+            /* Start large */
+            transition: height 0.3s ease;
+        }
+
+        /* Scrolled state for nav-inner */
+        body.scrolled .nav-inner {
+            height: 70px;
         }
 
         .nav-logo {
@@ -89,13 +95,18 @@
         }
 
         .nav-logo img {
-            height: 60px;
-            /* Increased from 48px */
-            width: 60px;
-            /* Increased from 48px */
+            height: 100px;
+            width: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--color-bg-alt);
+            transition: all 0.3s ease;
+        }
+
+        /* Scrolled state for logo image */
+        body.scrolled .nav-logo img {
+            height: 50px;
+            width: 50px;
         }
 
         .nav-links {
@@ -1353,6 +1364,14 @@
         const sections = document.querySelectorAll('section[id]');
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
+
+            // Header resize effect
+            if (scrollY > 50) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionHeight = section.offsetHeight;
