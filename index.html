@@ -79,73 +79,9 @@
             transition: height 0.3s ease;
         }
 
-        /* Scrolled state for nav-inner */
-        body.scrolled .nav-inner {
-            height: 70px;
-        }
 
-        .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-dark);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
 
-        .nav-logo img {
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--color-bg-alt);
-            transition: all 0.3s ease;
-        }
 
-        /* Scrolled state for logo image */
-        body.scrolled .nav-logo img {
-            height: 50px;
-            width: 50px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            /* Increased gap */
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-dark);
-            font-weight: 500;
-            font-size: 1.1rem;
-            /* Increased from default ~1rem */
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--color-dark);
-            margin: 5px 0;
-            transition: all 0.3s;
-        }
 
         /* Hero Section */
         .hero {
@@ -153,7 +89,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6rem 2rem 4rem;
+            padding: 2rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -1089,22 +1025,13 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">
-                <img src="Photo.png" alt="Niloofar H." aria-label="Home">
-            </a>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.html">Portfolio</a></li>
-                <!-- <li><a href="about.html">About Me</a></li> -->
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation / Header -->
+    <header style="padding: 2rem 0; text-align: center;">
+        <a href="index.html" style="display: inline-block;">
+            <img src="Photo.png" alt="Niloofar H."
+                style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+        </a>
+    </header>
 
     <!-- Hero -->
     <section class="hero">
@@ -1328,51 +1255,7 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
 
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-
-
-        // Active nav link highlighting
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-
-            // Header resize effect
-            if (scrollY > 50) {
-                document.body.classList.add('scrolled');
-            } else {
-                document.body.classList.remove('scrolled');
-            }
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                if (navLink) {
-                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                        navLink.style.color = 'var(--color-primary)';
-                    } else {
-                        navLink.style.color = '';
-                    }
-                }
-            });
-        });
     </script>
 </body>
 
