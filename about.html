@@ -890,33 +890,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Center icon */
-            width: 60px;
-            /* Square-ish */
-            height: 60px;
+            width: 48px;
+            height: 48px;
             padding: 0;
             background: transparent;
-            border: 1.5px solid #000000;
+            border: none;
             border-radius: 0;
             text-decoration: none;
             color: #000000;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             box-shadow: none;
         }
 
         .contact-item:hover {
-            background: #000000;
-            color: #ffffff;
-            transform: translateY(-2px);
+            background: transparent;
+            color: #000000;
+            transform: rotate(15deg);
         }
 
         .contact-icon {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             background: transparent;
-            /* Remove background */
             color: currentColor;
-            /* Use button's text color */
             display: flex;
             align-items: center;
             justify-content: center;
