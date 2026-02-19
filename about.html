@@ -559,83 +559,65 @@
 
         .project-card {
             background: transparent;
-            /* Made transparent for flat look */
-            border-radius: 24px;
+            /* Flat look */
+            border-radius: 0;
+            /* Edge to edge for all sizes to align with left stick */
             border: none !important;
-            /* Force removal of any border */
+            /* No border */
             overflow: hidden;
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
+            /* Default Mobile: Stacked */
             cursor: pointer;
             box-shadow: none;
-            /* Removed shadow */
+            /* No shadow */
+            width: 100%;
+            margin: 0;
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 0 24px 24px 0;
+            /* Rounded right side only */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg-alt);
+        }
+
+        .project-info {
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
         }
 
         /* Project Card Styles */
         @media (min-width: 768px) {
             .project-card {
-                flex-direction: row;
-                /* Horizontal layout */
+                flex-direction: row !important;
+                /* Force Horizontal layout */
                 align-items: center;
-                gap: 4rem;
-                /* Space between image and text */
+                gap: 0;
             }
 
             .project-visual {
                 width: 50%;
-                /* Image takes 50% (half page) */
+                /* Half page */
                 height: 350px;
-                /* Maintains reduced height */
                 border-radius: 0 24px 24px 0;
-                /* Round only right side */
-                object-fit: cover;
-                /* Ensure image covers area */
             }
 
             .project-info {
                 width: 50%;
-                /* Text takes 50% */
+                /* Half page */
                 padding: 4rem 6rem 4rem 4rem;
-                /* Maintain padding */
-                box-sizing: border-box;
             }
-        }
-
-        .project-card {
-            background: transparent;
-            /* Made transparent for flat look */
-            border-radius: 24px;
-            border: none !important;
-            /* Force removal of any border */
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            box-shadow: none;
-            /* Removed shadow */
-        }
-
-
-
-        .project-visual {
-            width: 100%;
-            height: 350px;
-            /* Mobile height */
-            border-radius: 12px;
-            /* Reduced curviness */
-            overflow: hidden;
-            position: relative;
-            /* For absolute positioning of tags */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-bg-alt);
         }
 
         .project-details {
