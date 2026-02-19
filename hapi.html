@@ -782,69 +782,77 @@
 
         /* Contact Section */
         .contact {
-            text-align: center;
+            text-align: left;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+
+        .contact .section-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-header-text {
+            flex: 1;
+            min-width: 300px;
         }
 
         .contact .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 600px;
+            font-weight: 500;
+            margin-bottom: 0;
         }
 
         .contact-methods {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 0;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2rem;
-            background: var(--color-bg);
-            /* Changed to var(--color-bg) for better contrast */
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            background: transparent;
             border: none;
-            /* Removed border */
-            border-radius: 16px;
+            border-radius: 0;
             text-decoration: none;
-            color: var(--color-text);
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            /* Subtle shadow */
+            color: var(--color-text-lighter);
+            transition: color 0.3s ease;
+            box-shadow: none;
         }
 
         .contact-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            /* Adjusted shadow for hover */
+            background: transparent;
+            color: #000000;
         }
 
         .contact-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--color-primary);
-            color: white;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            color: currentColor;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
             flex-shrink: 0;
         }
 
-        .contact-label {
-            font-size: 0.75rem;
-            color: var(--color-text-lighter);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .contact-value {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--color-dark);
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         /* Footer */
@@ -1112,13 +1120,38 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-inner">
-            <p class="footer-text">Niloofar Hajiheidari &mdash; UI/UX Designer</p>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="contact-header-text">
+                <p class="section-subtitle">Niloofar Hajiheidari</p>
+            </div>
 
+            <div class="contact-methods">
+                <a href="mailto:Niloofar.hheidari@gmail.com" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/niloofarhajiheidari/" target="_blank" rel="noopener noreferrer"
+                    class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
         </div>
-    </footer>
+    </section>
 
     <script>
 
