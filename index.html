@@ -647,23 +647,24 @@
 
         @media (min-width: 900px) {
             .project-card {
-                flex-direction: column;
-                /* Stacked layout */
-                min-height: auto;
-                align-items: stretch;
+                flex-direction: row;
+                /* Horizontal layout */
+                align-items: center;
+                gap: 4rem;
+                /* Space between image and text */
             }
 
             .project-visual {
-                width: 100%;
-                /* Full width */
-                height: 450px;
-                /* Fixed height for visual */
+                width: 60%;
+                /* Image takes more space */
+                height: 500px;
+                /* Adjust height */
             }
 
             .project-info {
-                width: 100%;
-                /* Full width */
-                padding: 1.25rem 0 0 0;
+                width: 40%;
+                /* Text takes less space */
+                padding: 0;
             }
         }
 
