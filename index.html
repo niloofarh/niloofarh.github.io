@@ -715,14 +715,18 @@
         }
 
         .project-tag {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--color-dark);
+            background: #ffffff;
+            /* White bg */
+            color: #000000;
+            /* Black text */
             padding: 0.4rem 0.8rem;
-            border-radius: 4px;
+            border-radius: 2px;
+            /* Rectangular with small radius */
             font-size: 0.75rem;
             font-weight: 500;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #000000;
+            /* Black border */
+            box-shadow: none;
         }
 
         .project-info {
@@ -842,14 +846,7 @@
             margin-top: 1rem;
         }
 
-        .project-tag {
-            padding: 0.375rem 0.875rem;
-            background: var(--color-bg-alt);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--color-text-light);
-            border: 1px solid var(--color-border);
-        }
+
 
         /* Education Section */
         .education {
