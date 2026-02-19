@@ -856,20 +856,33 @@
 
         /* Contact Section */
         .contact {
-            text-align: center;
+            text-align: left;
+        }
+
+        .contact .section-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-header-text {
+            flex: 1;
+            min-width: 300px;
         }
 
         .contact .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 600px;
         }
 
         .contact-methods {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
         }
 
         .contact-item {

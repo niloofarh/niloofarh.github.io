@@ -960,20 +960,33 @@
 
         /* Contact Section */
         .contact {
-            text-align: center;
+            text-align: left;
+        }
+
+        .contact .section-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-header-text {
+            flex: 1;
+            min-width: 300px;
         }
 
         .contact .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 600px;
         }
 
         .contact-methods {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
         }
 
         .contact-item {
@@ -1383,11 +1396,12 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="section-container">
-
-            <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or
-                opportunities to
-                be part of your vision.</p>
+            <div class="contact-header-text">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or
+                    opportunities to
+                    be part of your vision.</p>
+            </div>
 
             <div class="contact-methods fade-in">
                 <a href="mailto:Niloofar.hheidari@gmail.com" class="contact-item">
