@@ -895,37 +895,43 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2rem;
-            background: var(--color-bg);
-            /* Changed to var(--color-bg) for better contrast */
-            border: none;
-            /* Removed border */
-            border-radius: 16px;
+            justify-content: center;
+            /* Center icon */
+            width: 60px;
+            /* Square-ish */
+            height: 60px;
+            padding: 0;
+            background: transparent;
+            border: 1.5px solid #000000;
+            border-radius: 0;
             text-decoration: none;
-            color: var(--color-text);
+            color: #000000;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            /* Subtle shadow */
+            box-shadow: none;
         }
 
         .contact-item:hover {
+            background: #000000;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            /* Adjusted shadow for hover */
         }
 
         .contact-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--color-primary);
-            color: white;
+            width: 24px;
+            height: 24px;
+            background: transparent;
+            /* Remove background */
+            color: currentColor;
+            /* Use button's text color */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
             flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .contact-label {
@@ -1365,10 +1371,6 @@
                             <polyline points="22,6 12,13 2,6" />
                         </svg>
                     </div>
-                    <div>
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">Niloofar.hheidari@gmail.com</div>
-                    </div>
                 </a>
 
                 <a href="https://www.linkedin.com/in/niloofarhajiheidari/" target="_blank" rel="noopener noreferrer"
@@ -1380,10 +1382,6 @@
                             <rect x="2" y="9" width="4" height="12" />
                             <circle cx="4" cy="4" r="2" />
                         </svg>
-                    </div>
-                    <div>
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">Niloofar Hajiheidari</div>
                     </div>
                 </a>
             </div>
