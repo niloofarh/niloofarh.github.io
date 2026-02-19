@@ -141,11 +141,12 @@
 
         .hero-vertical-line {
             display: flex;
-            align-items: stretch;
+            align-items: flex-start;
+            /* Align top to match horizontal line */
             justify-content: center;
             position: relative;
-            padding-top: 2rem;
-            /* Space for Scroll text */
+            padding-top: 0;
+            /* Removed padding */
         }
 
         .hero-vertical-line img {
@@ -1140,8 +1141,7 @@
         </div>
 
         <div class="hero-vertical-line">
-            <!-- Scroll text removed as per request -->
-            <!-- Vertical line removed as per request -->
+            <img src="Vertical line hero.png" alt="" style="height: 100%; width: auto; object-fit: cover;">
         </div>
 
         <div class="hero-right">
