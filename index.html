@@ -982,22 +982,24 @@
             align-items: center;
             gap: 0.75rem;
             padding: 1.25rem 2rem;
-            background: var(--color-bg);
-            /* Changed to var(--color-bg) for better contrast */
-            border: none;
-            /* Removed border */
-            border-radius: 16px;
+            background: transparent;
+            /* Transparent bg */
+            border: 1.5px solid #000000;
+            /* Black border */
+            border-radius: 0;
+            /* No radius */
             text-decoration: none;
-            color: var(--color-text);
+            color: #000000;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            /* Subtle shadow */
+            box-shadow: none;
+            /* No shadow */
         }
 
         .contact-item:hover {
+            background: #000000;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            /* Adjusted shadow for hover */
+            box-shadow: none;
         }
 
         .contact-icon {
