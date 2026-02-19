@@ -661,17 +661,19 @@
             }
 
             .project-visual {
-                width: 55%;
-                /* Image takes 55% */
+                width: 45%;
+                /* Image takes less space (45%) */
                 height: 600px;
-                /* Taller image */
+                /* Vertical height constraint */
                 border-radius: 0 24px 24px 0;
                 /* Round only right side */
+                object-fit: cover;
+                /* Ensure image covers area */
             }
 
             .project-info {
-                width: 45%;
-                /* Text takes rest */
+                width: 55%;
+                /* Text takes more space */
                 padding: 4rem 6rem 4rem 4rem;
                 /* More padding for readability */
                 box-sizing: border-box;
