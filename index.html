@@ -685,17 +685,16 @@
             .project-card {
                 flex-direction: row !important;
                 /* Force Horizontal layout */
-                align-items: stretch;
-                /* Stretch to equal height */
+                align-items: center;
+                /* Revert to center to keep image 500px */
                 gap: 0;
             }
 
             .project-visual {
                 width: 60%;
                 /* Wider image */
-                height: auto;
-                /* Auto height to match text */
-                min-height: 500px;
+                height: 500px;
+                /* Fixed height */
                 border-radius: 0;
                 object-position: right center;
                 /* Keep right side, crop left */
