@@ -1254,125 +1254,125 @@
         <div class="about-grid"
             style="display: grid; grid-template-columns: 1fr; gap: 8rem; width: 100%; max-width: none; margin: 0;">
 
-            <!-- Two-Column Master Layout -->
-            <div style="display: flex; align-items: stretch; width: 100%;">
-
-                <!-- Left Column (Titles) -->
-                <div
-                    style="flex: 0 0 calc(25% - 2rem); max-width: 400px; background-color: var(--color-dark); color: var(--color-bg); padding: 4rem 3rem; display: flex; flex-direction: column; gap: 8rem;">
-                    <h2
-                        style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin: 0; line-height: 1.2;">
-                        The Challenge</h2>
-                    <h2
-                        style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin: 0; line-height: 1.2;">
-                        My Approach</h2>
-                    <h2
-                        style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin: 0; line-height: 1.2;">
-                        The Solution</h2>
+            <!-- The Challenge -->
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: stretch;">
+                <h2
+                    style="flex: 0 0 calc(25% - 2rem); font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 0; margin-top: 0; line-height: 1.2; background-color: var(--color-dark); color: var(--color-bg); padding: 0.5rem 1rem;">
+                    The Challenge</h2>
+                <div style="flex: 1 1 calc(75% - 2rem);">
+                    <p class="section-subtitle" style="margin-bottom: 1.5rem; color: var(--color-text-light);">
+                        Designing for medical devices presents a unique set of constraints. The interface must be
+                        rigorous
+                        enough to meet strict medical regulations while remaining intuitive for doctors who operate
+                        under
+                        high pressure.
+                    </p>
+                    <p class="section-subtitle" style="margin-bottom: 0;">
+                        The core challenge was to simplify the control of a complex medical scanner without
+                        oversimplifying
+                        the critical data it provides. We needed to reduce cognitive load, minimize error rates, and
+                        ensure
+                        that every interaction was deliberate and precise.
+                    </p>
                 </div>
+            </div>
 
-                <!-- Right Column (Content) -->
-                <div
-                    style="flex: 1 1 calc(75% - 2rem); padding: 4rem 0 4rem 4rem; display: flex; flex-direction: column; gap: 8rem;">
 
-                    <!-- Content 1: The Challenge -->
-                    <div>
-                        <p class="section-subtitle" style="margin-bottom: 1.5rem; color: var(--color-text-light);">
-                            Designing for medical devices presents a unique set of constraints. The interface must be
-                            rigorous
-                            enough to meet strict medical regulations while remaining intuitive for doctors who operate
-                            under
-                            high pressure.
-                        </p>
-                        <p class="section-subtitle" style="margin-bottom: 0;">
-                            The core challenge was to simplify the control of a complex medical scanner without
-                            oversimplifying
-                            the critical data it provides. We needed to reduce cognitive load, minimize error rates, and
-                            ensure
-                            that every interaction was deliberate and precise.
-                        </p>
-                    </div>
 
-                    <!-- Content 2: My Approach -->
-                    <div>
-                        <p class="section-subtitle" style="margin-bottom: 3rem;">
-                            My design process was grounded in understanding the clinical workflow. I started by mapping
-                            out the
-                            doctor's journey—from patient setup to scanning and data review.
-                        </p>
-                        <ul class="timeline-list" style="display: grid; gap: 4rem;">
-                            <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
-                                <span
-                                    style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">01</span>
-                                <div>
-                                    <strong
-                                        style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Workflow
-                                        Analysis:</strong>
-                                    <span class="section-subtitle"
-                                        style="font-size: 1.4rem; margin-bottom: 0px;">Identifying friction points in
-                                        existing scanner interfaces where doctors often struggled or hesitated.</span>
-                                </div>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
-                                <span
-                                    style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">02</span>
-                                <div>
-                                    <strong
-                                        style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Regulatory
-                                        Alignment:</strong>
-                                    <span class="section-subtitle"
-                                        style="font-size: 1.4rem; margin-bottom: 0px;">Ensuring all UI elements met
-                                        accessibility and safety standards required for medical software (e.g., clear
-                                        readability, error prevention).</span>
-                                </div>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
-                                <span
-                                    style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">03</span>
-                                <div>
-                                    <strong
-                                        style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Rapid
-                                        Prototyping:</strong>
-                                    <span class="section-subtitle"
-                                        style="font-size: 1.4rem; margin-bottom: 0px;">Creating low-fidelity wireframes
-                                        to test layout logic before moving to high-fidelity visual designs.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Content 3: The Solution -->
-                    <div>
-                        <p class="section-subtitle" style="margin-bottom: 3rem;">
-                            The final HAPI interface is a validated high-fidelity prototype that balances power with
-                            ease of
-                            use. Key design decisions included:
-                        </p>
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-                            <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
-                                <h3
-                                    style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
-                                    Clear Hierarchy</h3>
-                                <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Critical
-                                    scanning data is prioritized, while secondary settings are tucked away to reduce
-                                    visual clutter.</p>
+            <!-- The Approach -->
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: stretch;">
+                <h2
+                    style="flex: 0 0 calc(25% - 2rem); font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 0; margin-top: 0; line-height: 1.2; background-color: var(--color-dark); color: var(--color-bg); padding: 0.5rem 1rem;">
+                    My Approach</h2>
+                <div style="flex: 1 1 calc(75% - 2rem);">
+                    <p class="section-subtitle" style="margin-bottom: 3rem;">
+                        My design process was grounded in understanding the clinical workflow. I started by mapping out
+                        the
+                        doctor's journey—from patient setup to scanning and data review.
+                    </p>
+                    <ul class="timeline-list" style="display: grid; gap: 4rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                            <span
+                                style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">01</span>
+                            <div>
+                                <strong
+                                    style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Workflow
+                                    Analysis:</strong>
+                                <span class="section-subtitle"
+                                    style="font-size: 1.4rem; margin-bottom: 0px;">Identifying
+                                    friction points in existing scanner
+                                    interfaces where doctors often struggled or hesitated.</span>
                             </div>
-                            <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
-                                <h3
-                                    style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
-                                    Error Prevention</h3>
-                                <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">"Confirm"
-                                    actions are distinguished from "Cancel" actions through distinct color coding and
-                                    placement to prevent accidental stops.</p>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                            <span
+                                style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">02</span>
+                            <div>
+                                <strong
+                                    style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Regulatory
+                                    Alignment:</strong>
+                                <span class="section-subtitle" style="font-size: 1.4rem; margin-bottom: 0px;">Ensuring
+                                    all
+                                    UI elements met accessibility and safety
+                                    standards required for medical software (e.g., clear readability, error
+                                    prevention).</span>
                             </div>
-                            <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
-                                <h3
-                                    style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
-                                    Dark Mode Ready</h3>
-                                <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Designed for
-                                    dimly lit radiology rooms to reduce eye strain for medical professionals.</p>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                            <span
+                                style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1; margin-top: 0;">03</span>
+                            <div>
+                                <strong
+                                    style="display: block; font-size: 2rem; line-height: 1; margin-bottom: 1.5rem; color: var(--color-dark);">Rapid
+                                    Prototyping:</strong>
+                                <span class="section-subtitle" style="font-size: 1.4rem; margin-bottom: 0px;">Creating
+                                    low-fidelity wireframes to test layout logic
+                                    before moving to high-fidelity visual designs.</span>
                             </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <!-- The Solution -->
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: stretch;">
+                <h2
+                    style="flex: 0 0 calc(25% - 2rem); font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 0; margin-top: 0; line-height: 1.2; background-color: var(--color-dark); color: var(--color-bg); padding: 0.5rem 1rem;">
+                    The Solution</h2>
+                <div style="flex: 1 1 calc(75% - 2rem);">
+                    <p class="section-subtitle" style="margin-bottom: 3rem;">
+                        The final HAPI interface is a validated high-fidelity prototype that balances power with ease of
+                        use. Key design decisions included:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                        <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                                Clear Hierarchy</h3>
+                            <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Critical scanning
+                                data is
+                                prioritized, while secondary settings are tucked away to reduce visual clutter.</p>
+                        </div>
+                        <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                                Error Prevention</h3>
+                            <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">"Confirm" actions
+                                are
+                                distinguished from "Cancel" actions through distinct color coding and placement to
+                                prevent
+                                accidental stops.</p>
+                        </div>
+                        <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                                Dark Mode Ready</h3>
+                            <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Designed for
+                                dimly
+                                lit radiology
+                                rooms to reduce eye strain for medical professionals.</p>
                         </div>
                     </div>
                 </div>
