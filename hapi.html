@@ -1012,14 +1012,21 @@
             border-radius: 0;
             text-decoration: none;
             color: #ffffff;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease;
             box-shadow: none;
         }
 
         .contact-item:hover {
             background: transparent;
             color: #ffffff;
-            transform: rotate(15deg);
+        }
+
+        .contact-item svg {
+            transition: fill 0.3s ease;
+        }
+
+        .contact-item:hover svg {
+            fill: #ffffff;
         }
 
         .contact-icon {

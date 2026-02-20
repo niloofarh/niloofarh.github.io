@@ -221,15 +221,22 @@
 
         .hero-contact-item {
             color: #000;
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: color 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .hero-contact-item:hover {
-            transform: scale(1.1);
-            color: var(--color-text-lighter);
+            color: #000;
+        }
+
+        .hero-contact-item svg {
+            transition: fill 0.3s ease;
+        }
+
+        .hero-contact-item:hover svg {
+            fill: #000;
         }
 
         /* Responsive */
@@ -1038,14 +1045,21 @@
             border-radius: 0;
             text-decoration: none;
             color: #ffffff;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease;
             box-shadow: none;
         }
 
         .contact-item:hover {
             background: transparent;
             color: #ffffff;
-            transform: rotate(15deg);
+        }
+
+        .contact-item svg {
+            transition: fill 0.3s ease;
+        }
+
+        .contact-item:hover svg {
+            fill: #ffffff;
         }
 
         .contact-icon {
