@@ -1247,11 +1247,32 @@
             transition: stroke 0.3s ease;
         }
 
+        .project-meta-label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--color-text-lighter);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .project-meta-value {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
         @media (max-width: 600px) {
             .full-hero .hero-text-container {
                 top: 8.5rem !important;
                 bottom: auto !important;
                 left: 2rem !important;
+            }
+
+            .project-meta-value {
+                font-size: 1.1rem;
+            }
+
+            .project-meta {
+                gap: 2rem !important;
             }
         }
     </style>
@@ -1300,19 +1321,16 @@
                     prototype designed for precision and efficiency in fast-paced medical environments.</p>
                 <div class="project-meta" style="display: flex; gap: 4rem; margin-top: 3rem; flex-wrap: wrap;">
                     <div>
-                        <span
-                            style="display: block; font-size: 1.1rem; color: var(--color-text-lighter); margin-bottom: 0.5rem; text-transform: uppercase;">Role</span>
-                        <span style="font-weight: 600; font-size: 1.5rem;">UI/UX Designer</span>
+                        <span class="project-meta-label">Role</span>
+                        <span class="project-meta-value">UI/UX Designer</span>
                     </div>
                     <div>
-                        <span
-                            style="display: block; font-size: 1.1rem; color: var(--color-text-lighter); margin-bottom: 0.5rem; text-transform: uppercase;">Timeline</span>
-                        <span style="font-weight: 600; font-size: 1.5rem;">1 Month</span>
+                        <span class="project-meta-label">Timeline</span>
+                        <span class="project-meta-value">1 Month</span>
                     </div>
                     <div>
-                        <span
-                            style="display: block; font-size: 1.1rem; color: var(--color-text-lighter); margin-bottom: 0.5rem; text-transform: uppercase;">Tools</span>
-                        <span style="font-weight: 600; font-size: 1.5rem;">Figma</span>
+                        <span class="project-meta-label">Tools</span>
+                        <span class="project-meta-value">Figma</span>
                     </div>
                 </div>
             </div>
