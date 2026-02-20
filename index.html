@@ -1357,8 +1357,11 @@
             <!-- Kaman -->
             <div class="project-card fade-in">
                 <div class="project-visual kaman">
-                    <img src="kaman-cover.jpg" alt="Kaman App Cover"
-                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <picture style="width: 100%; height: 100%;">
+                        <source srcset="kaman-cover mobile.png" media="(max-width: 480px)">
+                        <img src="kaman-cover.jpg" alt="Kaman App Cover"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </picture>
                     <div class="project-details">
                         <span class="project-tag">Mixed-Method Research</span>
                         <span class="project-tag">Task Management</span>
