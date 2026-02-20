@@ -1195,10 +1195,47 @@
                 justify-content: center;
             }
         }
+
+        /* Sticky Back Button */
+        .sticky-back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--color-bg);
+            color: var(--color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            /* Remove border if user wants pure white square, else add subtle shadow */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-back-btn:hover {
+            background-color: var(--color-dark);
+            color: var(--color-bg);
+        }
+
+        .sticky-back-btn svg {
+            transition: stroke 0.3s ease;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- Sticky Back Button -->
+    <a href="index.html" class="sticky-back-btn" aria-label="Back to Main Page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+    </a>
 
     <!-- Project Hero -->
     <section class="full-hero"
