@@ -254,9 +254,13 @@
         @media (max-width: 900px) {
             .split-hero {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto 50vh;
-                gap: 1rem;
+                grid-template-rows: auto auto auto 50vh;
+                gap: 0.5rem;
                 padding: 1rem;
+            }
+
+            .hero-spacer {
+                display: none;
             }
 
             .hero-vertical-line {
@@ -268,8 +272,8 @@
             }
 
             .hero-left {
-                padding-top: 4rem;
-                justify-content: center;
+                padding-top: 2rem;
+                justify-content: flex-end;
             }
         }
 
