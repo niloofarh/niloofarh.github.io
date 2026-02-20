@@ -53,29 +53,184 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            transition: transform 0.3s ease;
+        }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+        .nav-inner {
+            max-width: calc(900px + 4rem);
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 6rem 2rem 4rem;
+            justify-content: space-between;
+            height: 120px;
+            /* Start large */
+            transition: height 0.3s ease;
+        }
+
+        /* Intro Section (Old Hero) */
+        .intro-content {
+            padding: 4rem 2rem;
+        }
+
+        /* New Hero Section */
+        .split-hero {
+            display: grid;
+            grid-template-columns: 1fr auto 3rem 25vw;
+            /* 3rem gap to match top spacing */
+            grid-template-rows: 100vh;
+            min-height: 100vh;
+            align-items: stretch;
             position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            /* Removed 2rem padding to remove right margin */
+            box-sizing: border-box;
+            gap: 0;
+            background: #ffffff;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            padding-bottom: 2rem;
+            /* Adjusted text position */
+            padding-right: 0;
+            padding-left: 2rem;
+            /* Restore left padding */
+        }
+
+        .hero-horizontal-line {
+            display: block;
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 3rem;
+            /* Moved up from 6rem */
+            left: 0;
+            object-fit: fill;
+            max-height: 20px;
+        }
+
+        .hero-main-text {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            /* Reduced from 5rem, 15vw, 12rem */
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000000;
+            margin-bottom: 0;
+            /* padding-left handled by separate rule lower down or in previous edit */
+        }
+
+        .hero-arrow {
+            font-size: clamp(2rem, 6vw, 4rem);
+            /* Reduced from 3rem, 8vw, 6rem */
+            font-weight: 700;
+            /* Increased from 300 */
+            color: #000000;
+            /* margin-top removed as it's now inline */
+        }
+
+        .hero-vertical-line {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            padding-top: 0;
+            height: 100%;
+        }
+
+        .hero-vertical-line img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .hero-right {
+            position: relative;
+            height: 100%;
+            width: 100%;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 0, 0, 0.06) 0%, transparent 70%);
-            pointer-events: none;
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
+
+        .hero-scroll-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #000000;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Grayscale to match screenshot style if desired, user didn't explicitly ask but screenshot is B&W */
+            filter: grayscale(100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .split-hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 50vh;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .hero-vertical-line {
+                display: none;
+            }
+
+            .hero-right {
+                height: 50vh;
+            }
+
+            .hero-left {
+                padding-top: 4rem;
+                justify-content: center;
+            }
+        }
+
 
         .hero-content {
             max-width: 1400px;
@@ -93,7 +248,8 @@
         }
 
         .hero-title {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+            /* Adjusted size */
             color: var(--color-text-light);
             font-weight: 300;
             margin-bottom: 2.5rem;
@@ -131,17 +287,19 @@
         .btn-primary:hover {
             background: var(--color-primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--color-text);
-            border: 1.5px solid var(--color-border);
+            color: #000000;
+            border: 1.5px solid #000000;
         }
 
         .btn-outline:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
             transform: translateY(-2px);
         }
 
@@ -189,10 +347,6 @@
             padding: 6rem 2rem;
         }
 
-        #hapi-content {
-            padding-bottom: 0;
-        }
-
         .section-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -209,7 +363,8 @@
         }
 
         .section-subtitle {
-            font-size: 1.05rem;
+            font-size: 1.5rem;
+            /* Increased from 1.05rem */
             color: var(--color-text-light);
             max-width: 100%;
             /* Increased from 600px to force single line */
@@ -362,7 +517,7 @@
             background: var(--color-bg-alt);
             border: none;
             /* Removed border */
-            border-radius: 4px;
+            border-radius: 50px;
             font-size: 0.85rem;
             color: var(--color-text-light);
             transition: all 0.2s;
@@ -471,85 +626,98 @@
         }
 
         /* Projects Section */
-        .projects-grid-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            margin-top: 3.5rem;
+        #projects {
+            background: var(--color-bg-alt);
+            padding-top: 2rem;
+            /* Reduced top padding */
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            /* Edge to edge */
         }
 
         .project-card {
-            background: var(--color-bg);
-            border-radius: 24px;
-            border: 1px solid var(--color-border);
+            background: transparent;
+            /* Flat look */
+            border-radius: 0;
+            /* Edge to edge for all sizes to align with left stick */
+            border: none !important;
+            /* No border */
             overflow: hidden;
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
+            /* Default Mobile: Stacked */
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Project Card Styles */
-        @media (min-width: 900px) {
-            .project-card {
-                flex-direction: column;
-                /* Stacked layout */
-                min-height: auto;
-                align-items: stretch;
-            }
-
-            .project-visual {
-                width: 100%;
-                /* Full width */
-                height: 450px;
-                /* Increased height */
-            }
-
-            .project-info {
-                width: 100%;
-                /* Full width */
-                padding: 1.25rem 0 0 0;
-            }
-        }
-
-        .project-card {
-            background: var(--color-bg);
-            border-radius: 24px;
-            border: 1px solid var(--color-border);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-            padding: 1rem;
-            /* Add padding inside card */
+            box-shadow: none;
+            /* No shadow */
+            width: 100%;
+            margin: 0;
         }
 
         .project-visual {
             width: 100%;
-            height: 350px;
-            /* Mobile height */
-            border-radius: 12px;
-            /* Reduced curviness */
+            height: 500px;
+            /* Increased height */
+            object-fit: cover;
+            border-radius: 0;
+            /* Sharp corners */
             overflow: hidden;
             position: relative;
-            /* For absolute positioning of tags */
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--color-bg-alt);
         }
 
+        .project-info {
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                flex-direction: row !important;
+                /* Force Horizontal layout */
+                align-items: center;
+                /* Revert to center to keep image 500px */
+                gap: 0;
+            }
+
+            .project-visual {
+                width: 60%;
+                /* Wider image */
+                height: 500px;
+                /* Fixed height */
+                border-radius: 0;
+                object-position: right center;
+                /* Keep right side, crop left */
+                border-right: 3px solid #000000;
+                /* Vertical separator */
+                box-sizing: border-box;
+                /* Include border in width */
+            }
+
+            .project-info {
+                width: 40%;
+                /* Narrower text */
+                padding: 4rem 6rem 4rem 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
         .project-details {
             position: absolute;
-            top: 0.5rem;
-            left: 0.75rem;
+            top: 0;
+            left: 1rem;
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
@@ -557,15 +725,19 @@
         }
 
         .project-tag {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--color-dark);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            /* Reduced curviness further */
-            font-size: 0.75rem;
+            background: #ffffff;
+            /* White bg */
+            color: #000000;
+            /* Black text */
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            /* Rectangular with small radius */
+            font-size: 0.9rem;
+            /* Increased from 0.75rem */
             font-weight: 500;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            border: 2px solid #000000;
+            /* Black border */
+            box-shadow: none;
         }
 
         .project-info {
@@ -577,13 +749,15 @@
         }
 
         .project-info h3 {
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
-            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 6rem;
+            /* Increased from 5rem */
         }
 
         .project-type {
-            font-size: 0.85rem;
+            font-size: 1rem;
+            /* Increased from 0.85rem */
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--color-primary);
@@ -595,25 +769,24 @@
         }
 
         .project-tagline {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            /* Increased from 1.1rem */
             color: var(--color-text-light);
-            margin-bottom: 0.75rem;
-            /* Reduced from default p margin */
+            margin-bottom: 1rem;
+            /* Increased margin */
             font-weight: 500;
         }
-
-
 
         .project-info .btn {
             width: auto;
             /* Auto width */
             display: inline-block;
             text-align: center;
-            margin-top: 1rem;
-            /* Push to bottom */
+            margin-top: 1.5rem;
+            /* Increased spacing */
             padding: 0.6rem 2rem;
-            border-radius: 8px;
-            /* Reduced curviness */
+            border-radius: 2px;
+            /* Close to 0 */
             align-self: flex-start;
             /* Align left */
             font-weight: 500;
@@ -621,16 +794,14 @@
             /* Increased from 0.8rem */
         }
 
-
-
         .project-info p {
             display: block;
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            /* Increased from 1.05rem */
             line-height: 1.6;
             color: var(--color-text-light);
         }
-
 
         .project-visual.hapi {
             background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
@@ -690,13 +861,16 @@
             margin-top: 1rem;
         }
 
-        .project-tag {
-            padding: 0.375rem 0.875rem;
-            background: var(--color-bg-alt);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--color-text-light);
-            border: 1px solid var(--color-border);
+
+
+        .project-separator {
+            width: 100%;
+            height: 3px;
+            /* Increased weight */
+            background-color: #000000;
+            border: none;
+            margin: 0;
+            display: block;
         }
 
         /* Education Section */
@@ -797,8 +971,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 100%;
         }
 
         .contact-header-text {
@@ -820,7 +993,13 @@
             justify-content: flex-start;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 0;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .contact-item {
@@ -859,6 +1038,23 @@
         .contact-icon svg {
             width: 100%;
             height: 100%;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            color: var(--color-text-lighter);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .contact-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-dark);
+        }
+
+        .contact-text {
+            text-align: left;
         }
 
         /* Footer */
@@ -1007,117 +1203,164 @@
 <body>
 
     <!-- Project Hero -->
-    <section class="hero" style="min-height: 60vh; padding-top: 0;">
-        <div class="hero-content" style="text-align: left;">
-            <span class="project-type"
-                style="display: block; margin-bottom: 1rem; color: var(--color-primary); font-weight: 600;">Med-Tech
-                Interface Design</span>
-            <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">HAPI: Handheld Laser Perfusion
-                Imager</h1>
-            <p style="font-size: 1.25rem; color: var(--color-text-light); margin-bottom: 2rem;">
-                Bridging the gap between complex medical technology and clinical usability. A validated high-fidelity
-                prototype designed for precision and efficiency in fast-paced medical environments.
-            </p>
-            <div class="project-meta" style="display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                <div>
-                    <span
-                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Role</span>
-                    <span style="font-weight: 500;">UI/UX Designer</span>
-                </div>
-                <div>
-                    <span
-                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Timeline</span>
-                    <span style="font-weight: 500;">1 Month</span>
-                </div>
-                <div>
-                    <span
-                        style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Tools</span>
-                    <span style="font-weight: 500;">Figma</span>
+    <section class="split-hero">
+        <div class="hero-left">
+            <img src="Horizantal line hero.png" alt="" class="hero-horizontal-line">
+            <h1 class="hero-main-text">
+                HAPI
+                <span class="hero-arrow"
+                    style="display: inline-block; margin-left: 0.5rem; vertical-align: middle;">↓</span>
+            </h1>
+        </div>
+
+        <div class="hero-vertical-line">
+            <img src="Vertical line hero.png" alt="" style="height: 100%; width: auto; object-fit: cover;">
+        </div>
+
+        <div class="hero-spacer"></div>
+
+        <div class="hero-right">
+            <img src="HAPI-cover.png?v=2" alt="HAPI App Cover" style="object-position: center top;">
+        </div>
+    </section>
+
+    <!-- Intro Content -->
+    <section class="intro-content" style="padding: 12rem 2rem; background-color: #000000; color: #ffffff;">
+        <div class="hero-content"
+            style="display: flex; align-items: stretch; gap: 2rem; max-width: 1400px; margin: 0 auto;">
+            <img src="Vertical line about me.png" alt="" style="width: auto; height: auto; object-fit: cover;">
+            <div>
+                <span class="project-type"
+                    style="display: block; margin-bottom: 2rem; color: #ffffff; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1rem;">Med-Tech
+                    Interface Design</span>
+                <p class="hero-title" style="font-weight: 700; color: #ffffff; margin: 0; padding: 0.5rem 0;">Bridging
+                    the gap between complex medical technology and clinical usability. A validated high-fidelity
+                    prototype designed for precision and efficiency in fast-paced medical environments.</p>
+                <div class="project-meta" style="display: flex; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
+                    <div>
+                        <span
+                            style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Role</span>
+                        <span style="font-weight: 500;">UI/UX Designer</span>
+                    </div>
+                    <div>
+                        <span
+                            style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Timeline</span>
+                        <span style="font-weight: 500;">1 Month</span>
+                    </div>
+                    <div>
+                        <span
+                            style="display: block; font-size: 0.875rem; color: var(--color-text-lighter); margin-bottom: 0.25rem;">Tools</span>
+                        <span style="font-weight: 500;">Figma</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visual -->
-    <section style="padding: 0 2rem; max-width: 1400px; margin: 0 auto;">
-        <img src="HAPI-cover.png?v=2" alt="HAPI Interface"
-            style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
-    </section>
-
     <!-- Content Sections -->
-    <section id="hapi-content" class="section-container">
-        <div class="about-grid" style="grid-template-columns: 1fr; gap: 4rem;">
+    <section id="hapi-content" class="section-container" style="padding-top: 6rem; padding-bottom: 6rem;">
+        <div class="about-grid" style="grid-template-columns: 1fr; gap: 6rem; max-width: 1400px;">
 
             <!-- The Challenge -->
             <div>
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The Challenge</h2>
-                <p style="margin-bottom: 1rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 2rem;">
+                    The Challenge</h2>
+                <p class="section-subtitle" style="margin-bottom: 1.5rem; color: var(--color-text-light);">
                     Designing for medical devices presents a unique set of constraints. The interface must be rigorous
                     enough to meet strict medical regulations while remaining intuitive for doctors who operate under
                     high pressure.
                 </p>
-                <p>
+                <p class="section-subtitle" style="margin-bottom: 0;">
                     The core challenge was to simplify the control of a complex medical scanner without oversimplifying
                     the critical data it provides. We needed to reduce cognitive load, minimize error rates, and ensure
                     that every interaction was deliberate and precise.
                 </p>
             </div>
 
+            <div class="project-separator"></div>
+
             <!-- The Approach -->
             <div>
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">My Approach</h2>
-                <p style="margin-bottom: 1rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 2rem;">
+                    My Approach</h2>
+                <p class="section-subtitle" style="margin-bottom: 3rem;">
                     My design process was grounded in understanding the clinical workflow. I started by mapping out the
                     doctor's journey—from patient setup to scanning and data review.
                 </p>
-                <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
-                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                        <span style="color: var(--color-primary); font-weight: bold;">01</span>
+                <ul class="timeline-list" style="display: grid; gap: 2rem;">
+                    <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                        <span
+                            style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1;">01</span>
                         <div>
-                            <strong>Workflow Analysis:</strong> Identifying friction points in existing scanner
-                            interfaces where doctors often struggled or hesitated.
+                            <strong
+                                style="display: block; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-dark);">Workflow
+                                Analysis:</strong>
+                            <span class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Identifying
+                                friction points in existing scanner
+                                interfaces where doctors often struggled or hesitated.</span>
                         </div>
                     </li>
-                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                        <span style="color: var(--color-primary); font-weight: bold;">02</span>
+                    <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                        <span
+                            style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1;">02</span>
                         <div>
-                            <strong>Regulatory Alignment:</strong> Ensuring all UI elements met accessibility and safety
-                            standards required for medical software (e.g., clear readability, error prevention).
+                            <strong
+                                style="display: block; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-dark);">Regulatory
+                                Alignment:</strong>
+                            <span class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Ensuring all
+                                UI elements met accessibility and safety
+                                standards required for medical software (e.g., clear readability, error
+                                prevention).</span>
                         </div>
                     </li>
-                    <li style="display: flex; align-items: flex-start; gap: 1rem;">
-                        <span style="color: var(--color-primary); font-weight: bold;">03</span>
+                    <li style="display: flex; align-items: flex-start; gap: 2rem; padding-left: 0;">
+                        <span
+                            style="color: var(--color-primary); font-weight: 700; font-size: 2rem; line-height: 1;">03</span>
                         <div>
-                            <strong>Rapid Prototyping:</strong> Creating low-fidelity wireframes to test layout logic
-                            before moving to high-fidelity visual designs.
+                            <strong
+                                style="display: block; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-dark);">Rapid
+                                Prototyping:</strong>
+                            <span class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Creating
+                                low-fidelity wireframes to test layout logic
+                                before moving to high-fidelity visual designs.</span>
                         </div>
                     </li>
                 </ul>
             </div>
 
+            <div class="project-separator"></div>
+
             <!-- The Solution -->
             <div>
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">The Solution</h2>
-                <p style="margin-bottom: 1rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 600; margin-bottom: 2rem;">
+                    The Solution</h2>
+                <p class="section-subtitle" style="margin-bottom: 3rem;">
                     The final HAPI interface is a validated high-fidelity prototype that balances power with ease of
                     use. Key design decisions included:
                 </p>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Clear Hierarchy</h3>
-                        <p style="font-size: 0.95rem; color: var(--color-text-light);">Critical scanning data is
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                    <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                            Clear Hierarchy</h3>
+                        <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Critical scanning
+                            data is
                             prioritized, while secondary settings are tucked away to reduce visual clutter.</p>
                     </div>
-                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Error Prevention</h3>
-                        <p style="font-size: 0.95rem; color: var(--color-text-light);">"Confirm" actions are
+                    <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                            Error Prevention</h3>
+                        <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">"Confirm" actions are
                             distinguished from "Cancel" actions through distinct color coding and placement to prevent
                             accidental stops.</p>
                     </div>
-                    <div style="padding: 1.5rem; background: var(--color-bg-alt); border-radius: 8px;">
-                        <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Dark Mode Ready</h3>
-                        <p style="font-size: 0.95rem; color: var(--color-text-light);">Designed for dimly lit radiology
+                    <div style="padding: 2.5rem; background: var(--color-bg); border: 2px solid #000000;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-dark);">
+                            Dark Mode Ready</h3>
+                        <p class="section-subtitle" style="font-size: 1.1rem; margin-bottom: 0px;">Designed for dimly
+                            lit radiology
                             rooms to reduce eye strain for medical professionals.</p>
                     </div>
                 </div>
@@ -1133,7 +1376,7 @@
                 <p class="section-subtitle">Niloofar Hajiheidari</p>
             </div>
 
-            <div class="contact-methods">
+            <div class="contact-methods fade-in">
                 <a href="mailto:Niloofar.hheidari@gmail.com" class="contact-item">
                     <div class="contact-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
