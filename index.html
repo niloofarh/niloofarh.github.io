@@ -255,7 +255,7 @@
             }
 
             .hero-right {
-                height: 50vh;
+                height: min(50vh, 400px);
             }
 
             .hero-left {
@@ -692,7 +692,7 @@
 
         .project-visual {
             width: 100%;
-            height: 500px;
+            height: min(500px, 60vh);
             /* Increased height */
             object-fit: cover;
             border-radius: 0;
@@ -703,6 +703,14 @@
             align-items: center;
             justify-content: center;
             background: var(--color-bg-alt);
+        }
+
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            /* Crop from left */
         }
 
         .project-info {
@@ -726,7 +734,7 @@
             .project-visual {
                 width: 60%;
                 /* Wider image */
-                height: 500px;
+                height: min(500px, 60vh);
                 /* Fixed height */
                 border-radius: 0;
                 object-position: right center;
