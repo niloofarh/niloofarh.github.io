@@ -1262,9 +1262,13 @@
 
         @media (max-width: 600px) {
             .full-hero .hero-text-container {
-                top: 12rem !important;
+                top: 30rem !important;
                 bottom: auto !important;
                 left: 2rem !important;
+            }
+
+            .full-hero img {
+                object-position: center top !important;
             }
 
             .project-meta-value {
@@ -1293,9 +1297,9 @@
     <section class="full-hero"
         style="position: relative; width: 100%; height: 100vh; overflow: hidden; margin: 0; padding: 0;">
         <picture style="width: 100%; height: 100%;">
-            <source srcset="hapi-hero-mobile.png?v=6" media="(max-width: 600px)">
-            <img src="HAPI-cover.png?v=6" alt="HAPI App Cover"
-                style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+            <source srcset="hapi-hero-mobile.png?v=7" media="(max-width: 600px)">
+            <img src="HAPI-cover.png?v=7" alt="HAPI App Cover"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: right center; display: block;">
         </picture>
 
         <div class="hero-text-container" style="position: absolute; bottom: 3rem; left: 3rem; z-index: 10;">
